@@ -1,3 +1,8 @@
+| 🚨 | **NOTE** | 🚨|
+| 🚨 |DO NOT USE |🚨 |
+| 🚨 |This is "recovered" code from a repo that probably wisely deleted itself. It exists here purely for my own education. |🚨 |
+| 🚨 |DO NOT USE |🚨 |
+
 # rustyspanner
 
 A RPC Spanner Client for Rust. This client is based on Google's [Python Client](https://github.com/GoogleCloudPlatform/google-cloud-python/tree/master/spanner).
@@ -21,7 +26,7 @@ To authenticate this application this client uses Google's [Application Default 
 
 ### Instantiating a Client
 
-First we provide the client with the project id to instantiate. 
+First we provide the client with the project id to instantiate.
 
 ```
 let mut client = Client::new(String::from("project_id"));
@@ -79,29 +84,29 @@ let result = db.run_in_transaction(|mut txn| {
     //Table and columns
     let table = String::from("table_name");
     let columns = vec![String::from("key"), String::from("value")];
-    
+
     //Protobuf Value object for the values to add
     let mut key = Value::new();
     key.set_string_value(String::from("test"));
     let mut val = Value::new();
     val.set_string_value(String::from("27"));
-    
+
     //Insert Mutation
     txn.insert(table.clone(), columns.clone(), vec![vec![key.clone(), val.clone()]]);
-    
+
     //Update Mutation
     val.set_string_value(String::from("28"));
     txn.update(table.clone(), columns.clone(), vec![vec![key.clone(), val.clone()]]);
-    
+
     //Update or insert Mutation
     key.set_string_value(String::from("testd"));
     val.set_string_value(String::from("11"));
     txn.upsert(table.clone(), columns.clone(), vec![vec![key.clone(), val.clone()]]);
-    
+
     //Delete Mutation
     let keyset = KeySet::new(Some(vec![String::from("testd")]), None, None);
     txn.delete(table.clone(), keyset);
-    
+
     //Commit transaction
     txn.commit();
     txn
@@ -119,16 +124,16 @@ let result = session.run_in_transaction(|mut txn| {
     //Table and columns
     let table = String::from("table_name");
     let columns = vec![String::from("key"), String::from("value")];
-    
+
     //Protobuf Value object for the values to add
     let mut key = Value::new();
     key.set_string_value(String::from("test"));
     let mut val = Value::new();
     val.set_string_value(String::from("27"));
-    
+
     //Insert Mutation
     txn.insert(table.clone(), columns.clone(), vec![vec![key.clone(), val.clone()]]);
-    
+
     //Commit transaction
     txn.commit();
     txn
@@ -141,11 +146,11 @@ Once you're done with the session you can call the `delete` method to remove it 
  //Delete session
  session.delete();
  ```
- 
+
 ### Read and Query
- 
+
 To read and query data from the database we can use the `Snapshot` object, this object is created with a `Session` object. This next example shows how to read data using a `KeySet`. Currently `KeySet` receives a `String` representation of the value to obtain, this may change in the future.
- 
+
 ```
 //Snapshot creation in a specific timestamp
 let timestamp = Utc::now();
