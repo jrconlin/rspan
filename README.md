@@ -1,7 +1,9 @@
-| 🚨 | **NOTE** | 🚨|
-| 🚨 |DO NOT USE |🚨 |
-| 🚨 |This is "recovered" code from a repo that probably wisely deleted itself. It exists here purely for my own education. |🚨 |
-| 🚨 |DO NOT USE |🚨 |
+
+🚨 | **NOTE** | 🚨 
+---: | :---: | :---
+🚨 | DO NOT USE | 🚨 
+🚨 | This is "recovered" code from a repo that probably wisely deleted itself. It exists here purely for my own education. | 🚨 
+🚨 | DO NOT USE | 🚨 
 
 # rustyspanner
 
